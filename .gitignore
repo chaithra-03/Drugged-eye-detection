@@ -1,0 +1,20 @@
+__pycache__/
+*.py[cod]
+*.so
+.venv/
+venv/
+.env
+.pytest_cache/
+.mypy_cache/
+coverage.xml
+htmlcov/
+*.log
+build/
+dist/
+*.egg-info/
+.DS_Store
+
+# Models and data artifacts
+*.h5
+Dataset/
+artifacts/

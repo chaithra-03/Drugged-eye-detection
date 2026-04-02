@@ -1,0 +1,47 @@
+[build-system]
+requires = ["setuptools>=69", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "drugged-eye-detection"
+version = "0.1.0"
+description = "Production-grade drugged eye detection pipeline and realtime app"
+readme = "README.md"
+requires-python = ">=3.10"
+authors = [{name = "Drugged Eye Detection Contributors"}]
+dependencies = [
+  "numpy>=1.26",
+  "opencv-python>=4.10",
+  "pydantic>=2.7",
+  "pydantic-settings>=2.3",
+]
+
+[project.optional-dependencies]
+ml = [
+  "tensorflow>=2.16",
+]
+ui = [
+  "PyQt5>=5.15",
+]
+dev = [
+  "pytest>=8.2",
+  "pytest-cov>=5.0",
+  "ruff>=0.5",
+  "mypy>=1.10",
+]
+
+[project.scripts]
+drugged-eye-detect = "drugged_eye_detection.cli:main"
+
+[tool.setuptools]
+package-dir = {"" = "src"}
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.ruff]
+line-length = 100
+
+[tool.pytest.ini_options]
+pythonpath = ["src"]
+addopts = "-q"
